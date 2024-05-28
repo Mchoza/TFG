@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookVerse</title>
+    <link rel="icon" type="image/jpg" href="../imagenes/favicon.png" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merienda"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body>
+    <!--Header arriba y luego el carrusel abajo -->
+    <header>
+      <h2 class="logo">
+        <a href="./paginaPrincipal.html">BookVerse</a>
+      </h2>
+      <nav class="navigation">
+        <div id="menu-escritorio">
+          <a href="./resenas.html">Reseñas</a>
+          <a href="#">Recomendaciones</a>
+        </div>
+        <div id="menu-movil">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Menú
+            </button>
+            <ul
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButton1"
+              style=""
+            >
+              <a class="dropdown-item" href="./resenas.html">Reseñas</a>
+              <a class="dropdown-item" href="#">Recomendaciones</a>
+            </ul>
+          </div>
+        </div>
+        <!--Burbujita de inicio de sesión-->
+        <button
+          type="button"
+          class="btn btn-lg"
+          data-bs-toggle="popover"
+          data-bs-title="Sesión Iniciada"
+          data-bs-content=""
+          id="botonPopover"
+        >
+          <div class="perfil">
+            <p class="card-img" id="perf" style="font-size: 2em">M</p>
+          </div>
+        </button>
+      </nav>
+    </header>
+    <!--Contenedor con las tarjetas que se voltean y la bienvenida-->
+    <div class="contenedor">
+      <h2>LIBROS MÁS LEIDOS</h2>
+
+      <div class="masLeidos">
+        <div class="card1">
+          <div class="face front">
+            <img src="../imagenes/caraval.jpg" alt="" />
+          </div>
+          <div class="face back">
+            <h3>Caraval</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad,
+              itaque sapiente placeat suscipit
+            </p>
+            <div class="link">
+              <a href="#">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card1">
+          <div class="face front">
+            <img src="../imagenes/lareinaroja.jpg" alt="" />
+          </div>
+          <div class="face back">
+            <h3>La Reina Roja</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad,
+              itaque sapiente placeat suscipit
+            </p>
+            <div class="link">
+              <a href="#">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card1">
+          <div class="face front">
+            <img src="../imagenes/seisdecuervos.jpg" alt="" />
+          </div>
+          <div class="face back">
+            <h3>Seis de Cuervos</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad,
+              itaque sapiente placeat suscipit
+            </p>
+            <div class="link">
+              <a href="#">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card1">
+          <div class="face front">
+            <img src="../imagenes/anhelosinmortales.jpg" alt="" />
+            <!-- <h3>Caraval</h3> -->
+          </div>
+          <div class="face back">
+            <h3>Anhelos Inmortales</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad,
+              itaque sapiente placeat suscipit
+            </p>
+            <div class="link">
+              <a href="#">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Bienvenido-->
+      <div class="row">
+        <div class="col-12">
+          <div class="bienvenida">
+            <h2>BIENVENID@</h2>
+
+            <p>
+              ¡Bienvenido a nuestra plataforma donde puedes explorar el
+              apasionante mundo de la literatura! Aquí puedes guardar tus
+              propias reseñas, construir tu biblioteca personal, y encontrar
+              inspiración en las frases de autores célebres de tus libros
+              favoritos. ¡Tu próximo libro favorito te espera aquí!
+            </p>
+          </div>
+          <div class="col-12"></div>
+        </div>
+      </div>
+      <!--Tarjetas de Libros + Reseñas + Frases -->
+      <!-- Swiper -->
+    </div>
+    <div class="container-fluid segundoContenedor">
+      <!--Tarjetas de reseñas-->
+      <div class="row laMadre">
+        <h2 class="titulillos">Reseñas</h2>
+        <div class="col-12 laConcha">
+          <div class="slide-container swiper mySwiper centered-swiper">
+            <div
+              class="slide-content card-wrapper swiper-wrapper contenedorResenas delegEvento2 hola"
+            ></div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+      <!--Tarjetas de libros-->
+      <div class="row">
+        <h2 class="titulillos">Libros</h2>
+        <div class="col-12 laConcha">
+          <div class="slide-container swiper mySwiper">
+            <div
+              class="slide-content card-wrapper swiper-wrapper delegEvento"
+              id="contenedorLibros"
+            ></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frasesAleat">
+      <h3 class="titFrase cita">"Aceptamos el amor que creemos merecer"</h3>
+      <div class="titAut">
+        <p class="titulo">Las ventajas de ser un marginado</p>
+        <p class="autor">- Stephen Chbosky</p>
+      </div>
+      <form action="GET">
+        <button type="button" class="btnActualizar-popup" id="actualizar">
+          Actualizar
+        </button>
+        <button type="button" class="btnAnadir-popup" id="anadir">
+          Añadir
+        </button>
+      </form>
+    </div>
+    <div class="final"></div>
+    <footer>
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social_icon">
+        <li>
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        </li>
+      </ul>
+      <p>©2024 BookVerse | All Rights Reserved</p>
+    </footer>
+    <!--modal para introducir una nueva frase aleatoria a la base de datos-->
+    <div class="modal modalHidden wrapper frasecitas">
+      <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+      <div class="form-box login frases">
+        <h2>Citas Célebres</h2>
+        <form action="GET">
+          <div class="input-box">
+            <input type="text" required name="cita" id="cita" />
+            <label for="cita">Cita</label>
+          </div>
+          <div class="input-box">
+            <input type="text" required name="libro" id="libro" />
+            <label for="libro">Libro</label>
+          </div>
+          <div class="input-box">
+            <input type="text" required name="autor" id="autor" />
+            <label for="autor">Autor</label>
+          </div>
+          <button type="button" class="btn" id="anadirCita" name="anadirCita">
+            Añadir
+          </button>
+        </form>
+      </div>
+    </div>
+    <!--modal libros y reseñas-->
+    <div class="modal2 modalHidden2 wrapper2 modalLibro" id="modalLibro">
+      <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+      <div class="form-box login detalleLibro" id="detalleLibro"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      rellenarPerfil();
+      // var swiper = new Swiper(".mySwiper", {
+      //   slidesPerView: 6, // Mostrar 6 tarjetas por vista
+      //   spaceBetween: 28,
+      //   slidesPerGroup: 1,
+      //   loop: true,
+      //   loopFillGroupWithBlank: true,
+      //   pagination: {
+      //     el: ".swiper-pagination",
+      //     clickable: true,
+      //   },
+      //   navigation: {
+      //     nextEl: ".swiper-button-next",
+      //     prevEl: ".swiper-button-prev",
+      //   },
+      // });
+
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2, // Mostrar 6 tarjetas por vista
+        spaceBetween: 28,
+        slidesPerGroup: 2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          1200: {
+            slidesPerView: 6,
+          },
+          991: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          578: {
+            slidesPerView: 2,
+          },
+        },
+      });
+
+      let botonActualizar = document.getElementById("actualizar");
+      botonActualizar.addEventListener("click", cambiarFrase);
+      let citaFra = document.getElementsByClassName("cita")[0];
+      let autorFra = document.getElementsByClassName("autor")[0];
+      let tituloFra = document.getElementsByClassName("titulo")[0];
+      let respuesta;
+
+      function cambiarFrase() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerInicio.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (text) {
+            console.log(text);
+            citaFra.textContent = "";
+            autorFra.textContent = "";
+            tituloFra.textContent = "";
+
+            // Decodificar el mensaje
+            var parts = text.split(";");
+            citaFra.innerHTML = "&quot;" + parts[0] + "&quot;";
+            autorFra.innerHTML = " - " + parts[1];
+            tituloFra.innerHTML = parts[2];
+          });
+      }
+
+      //popover perfil
+      // Inicializar los popovers
+      var popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]')
+      );
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
+      //Anadir enlace en el boton de perfil
+      var botonPopover = document.getElementById("botonPopover");
+
+      function actualizarPopover() {
+        // Eliminar el popover existente
+        var popover = bootstrap.Popover.getInstance(botonPopover);
+        if (popover) {
+          popover.dispose();
+        }
+
+        // Crear un nuevo popover con el contenido actualizado
+        var nuevoContenido = "<a href='./loginRegistro.html'>Cerrar sesión</a>";
+        var nuevoPopover = new bootstrap.Popover(botonPopover, {
+          html: true,
+          content: nuevoContenido,
+        });
+      }
+
+      // Llamar a la función para actualizar el popover
+      actualizarPopover();
+
+      //Vamos a sacar el valor de la sesión para rellenar la burbuja de perfil
+      function rellenarPerfil() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(directoryPath + "../controlador/controllerLogin.php");
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then((text) => {
+            //Ya conseguimos la inicial, ahora la vamos a poner en mayusculas y asignársela a la burbuja
+            let mayus = text.toUpperCase();
+            let perf = document.getElementById("perf");
+            perf.textContent = mayus;
+            perf.style.fontSize = "2em";
+          });
+      }
+
+      function rellenarLibros() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerLibros.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              respuesta = response.text();
+              return respuesta;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (respuesta) {
+            let valores = respuesta.split(";");
+            for (let i = 0; i < valores.length - 1; i++) {
+              for (let j = 0; j < 3; j++) {
+                let titulo = valores[i];
+                i++;
+                let foto = valores[i];
+                i++;
+                let sinopsis = valores[i];
+
+                // Crear la tarjeta de libro
+                let tarjeta = document.createElement("div");
+                tarjeta.classList.add("cardLibro");
+                tarjeta.classList.add("swiper-slide");
+                tarjeta.style.background = "url(" + foto + ")center";
+                tarjeta.style.backgroundSize = "cover";
+
+                let div = document.createElement("div");
+                div.classList.add("contentLibro");
+
+                let tituloElement = document.createElement("h2");
+                tituloElement.style.textAlign = "center";
+                tituloElement.textContent = titulo;
+
+                let sinopsisElement = document.createElement("p");
+                sinopsisElement.classList.add("sinopsis");
+                sinopsisElement.textContent = sinopsis;
+
+                let verMas = document.createElement("button");
+                verMas.classList.add("buttonLibro");
+                verMas.textContent = "Ver más";
+
+                div.appendChild(tituloElement);
+                div.appendChild(sinopsisElement);
+                div.append(verMas);
+                contenedorLibros.appendChild(tarjeta);
+
+                tarjeta.append(div);
+                j = 3;
+              }
+            }
+          })
+          .catch(function (error) {
+            console.error("Error al realizar la solicitud fetch:", error);
+          });
+      }
+
+      rellenarLibros();
+
+      /*RELLENAR RESEÑAS*/
+
+      function rellenarResenas() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerResena.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              respuesta = response.text();
+              return respuesta;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (respuesta) {
+            let valores = respuesta.split(";");
+            for (let i = 0; i < valores.length - 1; i++) {
+              for (let j = 0; j < 5; j++) {
+                let titulo = valores[i];
+                i++;
+                let foto = valores[i];
+                i++;
+                let resena = valores[i];
+                i++;
+                let estrellas = valores[i];
+                i++;
+                let fechaCreac = valores[i];
+
+                /*creacion de cada tarjeta*/
+
+                // Crear el elemento div con la clase "card2" y "swiper-slide"
+                let card = document.createElement("div");
+                card.classList.add("card2");
+                card.classList.add("swiper-slide");
+
+                // Crear el elemento div con la clase "image-content"
+                let imageContent = document.createElement("div");
+                imageContent.classList.add("image-content");
+
+                // Crear el elemento span con la clase "overlay"
+                let overlay = document.createElement("span");
+                overlay.classList.add("overlay");
+
+                // Crear el elemento div con la clase "card-image"
+                let cardImage = document.createElement("div");
+                cardImage.classList.add("card-image");
+
+                // Crear el elemento img con la clase "card-img" y configurar el atributo src
+                let img = document.createElement("img");
+                img.classList.add("card-img");
+                img.src = foto;
+
+                // Agregar el elemento img al elemento div con la clase "card-image"
+                cardImage.appendChild(img);
+
+                // Agregar el elemento div con la clase "card-image" al elemento div con la clase "image-content"
+                imageContent.appendChild(overlay);
+                imageContent.appendChild(cardImage);
+
+                // Crear el elemento div con la clase "card-content"
+                let cardContent = document.createElement("div");
+                cardContent.classList.add("card-content");
+
+                // Crear el elemento h2 con la clase "name" y configurar el texto
+                let h2 = document.createElement("h2");
+                h2.classList.add("name");
+                h2.textContent = titulo;
+
+                //Probamos a meter las estrellas
+                let divEst = document.createElement("div");
+                divEst.classList.add("estrellitas");
+
+                let imgEstrella = document.createElement("img");
+                imgEstrella.src = "../imagenes/" + estrellas + ".png";
+                divEst.appendChild(imgEstrella);
+
+                // Crear el elemento p con la clase "description" y configurar el texto
+                let p = document.createElement("p");
+                p.classList.add("description");
+                p.textContent = resena;
+
+                // Crear el elemento button con la clase "button" y configurar el texto
+                let button = document.createElement("button");
+                button.classList.add("button");
+                button.textContent = "Ver más"; // Puedes establecer el texto adecuado aquí
+
+                // Agregar el elemento h2, el elemento p y el elemento button al elemento div con la clase "card-content"
+                cardContent.appendChild(h2);
+                cardContent.appendChild(divEst);
+                cardContent.appendChild(p);
+                cardContent.appendChild(button);
+
+                // Agregar el elemento div con la clase "image-content" y el elemento div con la clase "card-content" al elemento div con la clase "card2"
+                card.appendChild(imageContent);
+                card.appendChild(cardContent);
+
+                document.querySelector(".contenedorResenas").appendChild(card);
+
+                j = 5;
+              }
+            }
+          })
+          .catch(function (error) {
+            console.error("Error al realizar la solicitud fetch:", error);
+          });
+      }
+
+      rellenarResenas();
+
+      /*FIN DE RELLENAR RESEÑAS*/
+      let modalHidden = document.querySelector(".modal.modalHidden");
+      const wrapper = document.querySelector(".wrapper");
+      let modalClose = document.querySelector(".modal .icon-close");
+
+      let anadir = document.getElementById("anadir");
+      anadir.addEventListener("click", () => {
+        let modalLibro = document.querySelector(".modal2.wrapper2");
+        modalLibro.classList.add("modalHidden2");
+        // Obtener la posición actual de desplazamiento de la página
+        var scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // Ajustar la posición del modal
+        modalHidden.style.top = scrollTop + 100 + "px";
+
+        // Función para actualizar la posición del modal al hacer scroll
+        function actualizarPosicionModal1() {
+          var scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          modalHidden.style.top = scrollTop + 100 + "px";
+        }
+
+        // Event listener para el evento de scroll
+        window.addEventListener("scroll", actualizarPosicionModal1);
+
+        modalHidden.classList.remove("modalHidden");
+
+        wrapper.classList.add("active-popup");
+        wrapper.classList.add("active");
+      });
+
+      modalClose.addEventListener("click", () => {
+        modalHidden.classList.add("modalHidden");
+
+        wrapper.classList.remove("active-popup");
+        wrapper.classList.remove("active");
+      });
+
+      let anadirCita = document.getElementById("anadirCita");
+      anadirCita.addEventListener("click", anadirCita1);
+
+      /*Anadir citas*/
+      function anadirCita1() {
+        let citafra = document.getElementById("cita");
+        let librofra = document.getElementById("libro");
+        let autorfra = document.getElementById("autor");
+        // citaFra.value.innerHTML = "";
+
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(directoryPath + "../controlador/controllerCitas.php");
+
+        url.searchParams.set("cita", citafra.value);
+        url.searchParams.set("libro", librofra.value);
+        url.searchParams.set("autor", autorfra.value);
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              let resp = response.text();
+              return resp;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then((resp) => {
+            let esta = resp;
+            modalHidden.classList.add("modalHidden");
+            wrapper.classList.remove("active-popup");
+            wrapper.classList.remove("active");
+            vaciarCampos();
+          });
+      }
+
+      /* Función para vaciar los campos del formulario */
+      function vaciarCampos() {
+        document.getElementById("cita").value = "";
+        document.getElementById("libro").value = "";
+        document.getElementById("autor").value = "";
+      }
+      let delegEvento = document.getElementsByClassName("delegEvento")[0];
+      delegEvento.addEventListener("click", verLibro);
+      function verLibro(e) {
+        let modalHidden = document.querySelector(".frasecitas");
+        modalHidden.classList.add("modalHidden");
+        let detalleLibro = document.getElementById("detalleLibro");
+        if (e.target.tagName == "BUTTON") {
+          let tarjeta = e.target.closest(".cardLibro");
+          if (tarjeta) {
+            let h2 = tarjeta.querySelector("h2");
+            if (h2) {
+              /*AQUI VAMOS A MANDAR EL H2 PARA HACER LA CONSULTA Y QUE NOS DEVUELVA LOS DATOS DEL LIBRO*/
+
+              const location = window.location.href;
+              const directoryPath = location.substring(
+                0,
+                location.lastIndexOf("/") + 1
+              );
+              let url = new URL(
+                directoryPath + "../controlador/controllerVerLibros.php"
+              );
+
+              url.searchParams.set("titulo", h2.textContent);
+
+              fetch(url)
+                .then(function (response) {
+                  if (response.ok) {
+                    let resp = response.text();
+                    return resp;
+                  } else {
+                    return (
+                      "Error " + response.status + " al acceder al servidor"
+                    );
+                  }
+                })
+                .then((resp) => {
+                  let esta = resp;
+
+                  let detalles = esta.split(";");
+                  detalleLibro.innerHTML = "";
+
+                  for (let i = 0; i < detalles.length; i++) {
+                    let titulo = document.createElement("h2");
+                    titulo.textContent = detalles[i];
+                    let autor = document.createElement("p");
+                    autor.textContent = detalles[i + 1];
+                    let img = document.createElement("img");
+                    img.style.width = "150px";
+                    img.src = detalles[i + 2];
+                    let sinop = document.createElement("p");
+                    sinop.textContent = detalles[i + 3];
+                    sinop.classList.add("sinop");
+                    let numPags = document.createElement("p");
+                    numPags.textContent = "Num Páginas: " + detalles[i + 4];
+                    numPags.classList.add("numPags");
+                    detalleLibro.appendChild(img);
+                    detalleLibro.appendChild(titulo);
+                    detalleLibro.appendChild(autor);
+                    detalleLibro.appendChild(sinop);
+                    detalleLibro.appendChild(numPags);
+
+                    i = detalles.length;
+                  }
+
+                  /*abrir y cerrar el modal*/
+                  let modalHidden2 = document.querySelector(
+                    ".modal2.modalHidden2"
+                  );
+                  const wrapper2 = document.querySelector(".wrapper2");
+                  let modalClose2 = document.querySelector(
+                    ".modal2 .icon-close"
+                  );
+
+                  // Obtener la posición actual de desplazamiento de la página
+                  var scrollTop2 =
+                    window.pageYOffset || document.documentElement.scrollTop;
+
+                  // Ajustar la posición del modal
+                  modalHidden2.style.top = scrollTop2 + 350 + "px";
+
+                  // Función para actualizar la posición del modal al hacer scroll
+                  function actualizarPosicionModal() {
+                    var scrollTop =
+                      window.pageYOffset || document.documentElement.scrollTop;
+                    modalHidden2.style.top = scrollTop + 350 + "px";
+                  }
+
+                  // Event listener para el evento de scroll
+                  window.addEventListener("scroll", actualizarPosicionModal);
+
+                  modalHidden2.classList.remove("modalHidden2");
+
+                  wrapper.classList.add("active-popup");
+                  wrapper.classList.add("active");
+
+                  modalClose2.addEventListener("click", () => {
+                    modalHidden2.classList.add("modalHidden2");
+
+                    wrapper.classList.remove("active-popup");
+                    wrapper.classList.remove("active");
+                  });
+
+                  /*termina lo de abrir y cerrar modal*/
+                });
+
+              /*AQUI TERMINA EL ENVIO*/
+            }
+
+            /*VER RESEÑA*/
+          }
+        }
+      }
+
+      let delegEvento2 = document.getElementsByClassName("hola")[0];
+      delegEvento2.addEventListener("click", verResena);
+      function verResena(e) {
+        let modalHidden = document.querySelector(".frasecitas");
+        modalHidden.classList.add("modalHidden");
+
+        let detalleLibro = document.getElementById("detalleLibro");
+        if (e.target.tagName == "BUTTON") {
+          let tarjeta = e.target.closest(".card2");
+          if (tarjeta) {
+            let h2 = tarjeta.querySelector("h2");
+            if (h2) {
+              /*AQUI VAMOS A MANDAR EL H2 PARA HACER LA CONSULTA Y QUE NOS DEVUELVA LOS DATOS DEL LIBRO*/
+
+              const location = window.location.href;
+              const directoryPath = location.substring(
+                0,
+                location.lastIndexOf("/") + 1
+              );
+              let url = new URL(
+                directoryPath + "../controlador/controllerVerResenas.php"
+              );
+
+              url.searchParams.set("titulo", h2.textContent);
+
+              fetch(url)
+                .then(function (response) {
+                  if (response.ok) {
+                    let resp = response.text();
+                    return resp;
+                  } else {
+                    return (
+                      "Error " + response.status + " al acceder al servidor"
+                    );
+                  }
+                })
+                .then((resp) => {
+                  let esta = resp;
+
+                  let detalles = esta.split(";");
+                  detalleLibro.innerHTML = "";
+
+                  for (let i = 0; i < detalles.length; i++) {
+                    let titulo = document.createElement("h2");
+                    titulo.textContent = detalles[i];
+                    let img = document.createElement("img");
+                    img.style.width = "150px";
+                    img.src = detalles[i + 1];
+                    let resena = document.createElement("p");
+                    resena.textContent = detalles[i + 2];
+                    resena.classList.add("resena");
+                    let estrellas = document.createElement("img");
+                    estrellas.src = "../imagenes/" + detalles[i + 3] + ".png";
+                    estrellas.style.width = "100px";
+                    let fecha = document.createElement("p");
+                    fecha.textContent = "Fecha: " + detalles[i + 4];
+                    fecha.classList.add("fechaCreac");
+
+                    detalleLibro.appendChild(img);
+                    detalleLibro.appendChild(titulo);
+                    detalleLibro.appendChild(estrellas);
+                    detalleLibro.appendChild(resena);
+                    detalleLibro.appendChild(fecha);
+
+                    i = detalles.length;
+                  }
+
+                  /*abrir y cerrar el modal*/
+                  let modalHidden2 = document.querySelector(
+                    ".modal2.modalHidden2"
+                  );
+                  const wrapper2 = document.querySelector(".wrapper2");
+                  let modalClose2 = document.querySelector(
+                    ".modal2 .icon-close"
+                  );
+
+                  // Obtener la posición actual de desplazamiento de la página
+                  var scrollTop2 =
+                    window.pageYOffset || document.documentElement.scrollTop;
+
+                  // Ajustar la posición del modal
+                  modalHidden2.style.top = scrollTop2 + 350 + "px";
+
+                  // Función para actualizar la posición del modal al hacer scroll
+                  function actualizarPosicionModal() {
+                    var scrollTop =
+                      window.pageYOffset || document.documentElement.scrollTop;
+                    modalHidden2.style.top = scrollTop + 350 + "px";
+                  }
+
+                  // Event listener para el evento de scroll
+                  window.addEventListener("scroll", actualizarPosicionModal);
+
+                  modalHidden2.classList.remove("modalHidden2");
+
+                  wrapper.classList.add("active-popup");
+                  wrapper.classList.add("active");
+
+                  modalClose2.addEventListener("click", () => {
+                    modalHidden2.classList.add("modalHidden2");
+
+                    wrapper.classList.remove("active-popup");
+                    wrapper.classList.remove("active");
+                  });
+
+                  /*termina lo de abrir y cerrar modal*/
+                });
+
+              /*AQUI TERMINA EL ENVIO*/
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

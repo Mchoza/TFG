@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio/Registro</title>
+    <link rel="stylesheet" href="./css/style-login.css" />
+    <link rel="icon" type="image/jpg" href="../imagenes/favicon.png" />
+  </head>
+  <body>
+    <!--video de fondo PRUEBA-->
+    <video autoplay muted loop id="video-background" poster="poster.jpg">
+      <source src="../imagenes/fondo.mp4" type="video/mp4" />
+    </video>
+    <header>
+      <h2 class="logo">BookVerse</h2>
+      <nav class="navigation">
+        <button class="btnLogin-popup">Login</button>
+      </nav>
+    </header>
+    <div class="wrapper active-popup">
+      <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="../controlador/controllerLogin.php" method="POST">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required name="emailLogin" id="emailLogin" />
+            <label for="emailLogin">Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock"></ion-icon></span>
+            <input
+              type="password"
+              required
+              name="passwordLogin"
+              id="passwordLogin"
+            />
+            <label for="passwordLogin">Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label for="remember"
+              ><input type="checkbox" name="remember" id="remember" />Remember
+              me</label
+            >
+            <a href="#">Forgot password? </a>
+          </div>
+          <button type="submit" class="btnLogin" name="login">Login</button>
+          <div class="login-register">
+            <p id="mensajeErrorLogin"></p>
+            <p>
+              Don't have an account?
+              <a href="#" class="register-link">Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="../controlador/controllerLogin.php" method="POST">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="text" required name="nomUsuario" id="nomUsuario" />
+            <label for="nomUsuario">Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input
+              type="email"
+              required
+              name="emailRegister"
+              id="emailRegister"
+            />
+            <label for="emailRegister">Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock"></ion-icon></span>
+            <input
+              type="password"
+              required
+              name="passwordRegister"
+              id="passwordRegister"
+            />
+            <label for="passwordRegister">Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label for="agree"
+              ><input type="checkbox" name="agree" id="agree" />I agree to the
+              terms & conditions</label
+            >
+          </div>
+          <button type="submit" class="btn" name="register">Register</button>
+          <div class="login-register">
+            <p>
+              Already have an account? <a href="#" class="login-link">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal modalHidden">
+      <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+      <div class="modalTitulo">Aviso</div>
+      <div class="modalMensaje">
+        <p>El registro no se ha podido realizar</p>
+      </div>
+      <div class="modalBotones">
+        <a href="#" class="botonAceptar">ACEPTAR</a>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>

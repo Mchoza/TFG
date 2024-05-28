@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reseñas</title>
+    <link rel="icon" type="image/jpg" href="../imagenes/favicon.png" />
+
+    <link rel="stylesheet" href="./css/resenas.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="flex-container">
+    <!--Header arriba y luego el carrusel abajo -->
+    <header>
+      <h2 class="logo">
+        <a href="./paginaPrincipal.html">BookVerse</a>
+      </h2>
+      <nav class="navigation">
+        <div id="menu-escritorio">
+          <a href="./resenas.html">Reseñas</a>
+          <a href="#">Recomendaciones</a>
+        </div>
+        <div id="menu-movil">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Menú
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <a class="dropdown-item" href="./resenas.html">Reseñas</a>
+              <a class="dropdown-item" href="#">Recomendaciones</a>
+            </ul>
+          </div>
+        </div>
+        <!--Burbujita de inicio de sesión-->
+        <button
+          type="button"
+          class="btn btn-lg"
+          data-bs-toggle="popover"
+          data-bs-title="Sesión Iniciada"
+          data-bs-content=""
+          id="botonPopover"
+        >
+          <div class="perfil">
+            <p class="card-img" id="perf" style="font-size: 2em">M</p>
+          </div>
+        </button>
+      </nav>
+    </header>
+    <div class="contenedorFeo">
+      <div class="wrapper active-popup">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+        <img
+          class="fondo"
+          src="../imagenes/background2.jpg"
+          alt="bosque azul con estrellas"
+        />
+        <div class="form-box anadir">
+          <h2>Añadir Reseña</h2>
+          <form action="">
+            <div class="input-box">
+              <select name="titulo" id="titulo" required>
+                <option disabled selected style="display: none" value>
+                  Libro
+                </option>
+                <!-- Otras opciones se cargan de la base de datos -->
+              </select>
+            </div>
+            <div class="input-box">
+              <textarea
+                name="resena"
+                id="resena"
+                cols="30"
+                rows="10"
+                required
+              ></textarea>
+              <label for="resena">Reseña</label>
+            </div>
+            <div class="input-box">
+              <input
+                type="number"
+                required
+                name="estrellas"
+                id="estrellas"
+                min="1"
+                max="5"
+              />
+              <label for="estrellas"
+                >Estrellas
+                <img
+                  src="../imagenes/5.png"
+                  alt=""
+                  style="vertical-align: middle; height: 20px"
+                />
+              </label>
+            </div>
+            <button type="submit" class="btnLogin anadirResena" name="login">
+              Añadir
+            </button>
+            <div class="login-register">
+              <p>
+                Ir a
+                <a href="#" class="register-link">Consultar</a>
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="form-box consulta">
+          <h2>Ver Reseñas</h2>
+          <form action="GET">
+            <div class="input-box">
+              <select name="editorial" id="editorial" required>
+                <option disabled selected style="display: none" value>
+                  Editorial
+                </option>
+              </select>
+            </div>
+            <div class="input-box">
+              <select name="genero" id="genero" required>
+                <option disabled selected style="display: none" value>
+                  Genero
+                </option>
+              </select>
+            </div>
+            <button
+              type="button"
+              class="btn btnConsulta"
+              id="btnConsulta"
+              name="register"
+            >
+              Ver Reseñas
+            </button>
+            <button
+              type="button"
+              class="btn btnConsulta btnConsultaTodas"
+              id="btnConsultaTodas"
+              name="register"
+            >
+              Ver TODAS
+            </button>
+            <div class="login-register">
+              <p>
+                Ir a
+                <a href="#" class="login-link">Añadir Reseña</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--tarjetas que se pintaran con la consulta-->
+    <div class="container tarjetasRes modalHidden">
+      <div
+        class="row row-cols-4 tarjetasConsultas contenedorResenas"
+        id="tarjetasConsultas"
+      ></div>
+    </div>
+    <!--footer-->
+    <div class="limpiador"></div>
+    <footer>
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social_icon">
+        <li>
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        </li>
+      </ul>
+      <p>©2024 BookVerse | All Rights Reserved</p>
+    </footer>
+    <!--modal modificar Reseña-->
+    <div class="disenos modalHidden2 estilos modalLibro" id="modalLibro">
+      <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+
+      <div class="form-box login detalleLibro" id="detalleLibro"></div>
+    </div>
+    <script>
+      rellenarPerfil();
+      rellenarDesplegable();
+      function rellenarDesplegable() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerRellenaDesplegable.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (text) {
+            // Decodificar el mensaje
+            var parts = text.split(";");
+            let desplegable = document.querySelector("select");
+            for (let i = 0; i < parts.length - 1; i++) {
+              let option = document.createElement("option");
+              option.textContent = parts[i];
+              desplegable.append(option);
+            }
+          });
+      }
+
+      let btnanadirResena = document.querySelector(".anadirResena");
+      btnanadirResena.addEventListener("click", anadirResena);
+
+      function anadirResena() {
+        let titulo = document.getElementById("titulo");
+        let resena = document.getElementById("resena");
+        let estrellas = document.getElementById("estrellas");
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerAnadirResena.php"
+        );
+        url.searchParams.set("titulo", titulo.value);
+        url.searchParams.set("resena", resena.value);
+        url.searchParams.set("estrellas", estrellas.value);
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              let respu = response;
+              return respu;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (text) {
+            // alert("ho");
+            let insercionCorrecta =
+              document.getElementById("insercionCorrecta");
+            setTimeout(function () {
+              insercionCorrecta.classList.remove("modalHidden");
+            }, 500);
+            insercionCorrecta.classList.add("modalHidden");
+          });
+      }
+
+      //Vamos a sacar el valor de la sesión para rellenar la burbuja de perfil
+      function rellenarPerfil() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(directoryPath + "../controlador/controllerLogin.php");
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then((text) => {
+            //Ya conseguimos la inicial, ahora la vamos a poner en mayusculas y asignársela a la burbuja
+            let mayus = text.toUpperCase();
+            let perf = document.getElementById("perf");
+            perf.textContent = mayus;
+            perf.style.fontSize = "2em";
+          });
+      }
+      //popover perfil
+      // Inicializar los popovers
+      var popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]')
+      );
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
+      //Anadir enlace en el boton de perfil
+      var botonPopover = document.getElementById("botonPopover");
+
+      function actualizarPopover() {
+        // Eliminar el popover existente
+        var popover = bootstrap.Popover.getInstance(botonPopover);
+        if (popover) {
+          popover.dispose();
+        }
+
+        // Crear un nuevo popover con el contenido actualizado
+        let nuevoContenido = "<a href='./loginRegistro.html'>Cerrar sesión</a>";
+        let nuevoPopover = new bootstrap.Popover(botonPopover, {
+          html: true,
+          content: nuevoContenido,
+        });
+      }
+
+      const loginLink = document.querySelector(".login-link");
+      const registerLink = document.querySelector(".register-link");
+      const iconClose = document.querySelector(".icon-close");
+      const wrapper = document.querySelector(".wrapper");
+      wrapper.classList.add("active-popup");
+
+      registerLink.addEventListener("click", () => {
+        wrapper.classList.add("active");
+      });
+
+      loginLink.addEventListener("click", () => {
+        wrapper.classList.remove("active");
+      });
+
+      iconClose.addEventListener("click", () => {
+        wrapper.classList.remove("active-popup");
+      });
+
+      actualizarPopover();
+      rellenarGenero();
+      //Rellenar el desplegable de genero
+      function rellenarGenero() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerRellenarGenero.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (text) {
+            // Decodificar el mensaje
+            var parts = text.split(";");
+            let genero = document.getElementById("genero");
+            for (let i = 0; i < parts.length - 1; i++) {
+              let option = document.createElement("option");
+              option.textContent = parts[i];
+              genero.append(option);
+            }
+          });
+      }
+      rellenarEditorial();
+      //Rellenar el desplegable de editorial
+      function rellenarEditorial() {
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerRellenarEditorial.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (text) {
+            // Decodificar el mensaje
+            var parts = text.split(";");
+            let editorial = document.getElementById("editorial");
+            for (let i = 0; i < parts.length - 1; i++) {
+              let option = document.createElement("option");
+              option.textContent = parts[i];
+              editorial.append(option);
+            }
+          });
+      }
+      let btnConsultaTodas = document.getElementById("btnConsultaTodas");
+      let tarjetasConsultas = document.getElementById("tarjetasConsultas");
+      btnConsultaTodas.addEventListener("click", verResenas);
+
+      function verResenas() {
+        let modalHidden = document.getElementsByClassName("modalHidden")[0];
+        modalHidden.classList.remove("modalHidden");
+
+        let contenedorFeo = document.getElementsByClassName("contenedorFeo")[0];
+
+        contenedorFeo.classList.add("modalHidden");
+
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerConsultaResena.php"
+        );
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              respuesta = response.text();
+              return respuesta;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (respuesta) {
+            let valores = respuesta.split(";");
+            for (let i = 0; i < valores.length - 1; i++) {
+              for (let j = 0; j < 5; j++) {
+                let titulo = valores[i];
+                i++;
+                let foto = valores[i];
+                i++;
+                let resena = valores[i];
+                i++;
+                let estrellas = valores[i];
+                i++;
+                let fechaCreac = valores[i];
+
+                /*creacion de cada tarjeta*/
+
+                // Crear el elemento div con la clase "card2" y "swiper-slide"
+                let card = document.createElement("div");
+                card.classList.add("card2");
+                card.classList.add("swiper-slide");
+
+                // Crear el elemento div con la clase "image-content"
+                let imageContent = document.createElement("div");
+                imageContent.classList.add("image-content");
+
+                // Crear el elemento span con la clase "overlay"
+                let overlay = document.createElement("span");
+                overlay.classList.add("overlay");
+
+                // Crear el elemento div con la clase "card-image"
+                let cardImage = document.createElement("div");
+                cardImage.classList.add("card-image");
+
+                // Crear el elemento img con la clase "card-img" y configurar el atributo src
+                let img = document.createElement("img");
+                img.classList.add("card-img");
+                img.src = foto;
+
+                // Agregar el elemento img al elemento div con la clase "card-image"
+                cardImage.appendChild(img);
+
+                // Agregar el elemento div con la clase "card-image" al elemento div con la clase "image-content"
+                imageContent.appendChild(overlay);
+                imageContent.appendChild(cardImage);
+
+                // Crear el elemento div con la clase "card-content"
+                let cardContent = document.createElement("div");
+                cardContent.classList.add("card-content");
+
+                // Crear el elemento h2 con la clase "name" y configurar el texto
+                let h2 = document.createElement("h2");
+                h2.classList.add("name");
+                h2.textContent = titulo; // Puedes establecer el texto adecuado aquí
+
+                //Probamos a meter las estrellas
+                let divEst = document.createElement("div");
+                divEst.classList.add("estrellitas");
+
+                let imgEstrella = document.createElement("img");
+                imgEstrella.src = "../imagenes/" + estrellas + ".png";
+                divEst.appendChild(imgEstrella);
+
+                // Crear el elemento p con la clase "description" y configurar el texto
+                let p = document.createElement("p");
+                p.classList.add("description");
+                p.textContent = resena;
+
+                // Crear el elemento button con la clase "button" y configurar el texto
+                let eliminar = document.createElement("button");
+                eliminar.classList.add("button");
+                eliminar.classList.add("eliminar");
+                eliminar.textContent = "Eliminar";
+
+                let modificar = document.createElement("button");
+                modificar.classList.add("button");
+                modificar.classList.add("modificar");
+                modificar.textContent = "Modificar";
+
+                cardContent.appendChild(h2);
+                cardContent.appendChild(divEst);
+                cardContent.appendChild(p);
+                cardContent.appendChild(eliminar);
+                cardContent.appendChild(modificar);
+
+                // Agregar el elemento div con la clase "image-content" y el elemento div con la clase "card-content" al elemento div con la clase "card2"
+                card.appendChild(imageContent);
+                card.appendChild(cardContent);
+
+                document.querySelector(".contenedorResenas").appendChild(card);
+                j = 5;
+                eliminar.addEventListener("click", eliminarResena);
+                modificar.addEventListener("click", a);
+              }
+            }
+          })
+          .catch(function (error) {
+            console.error("Error al realizar la solicitud fetch:", error);
+          });
+      }
+
+      /*ELIMINAR RESEÑAS*/
+
+      function eliminarResena(e) {
+        // Obtener el botón que disparó el evento
+        let button = e.target;
+
+        // Subir al contenedor de la tarjeta
+        let card = button.closest(".card2");
+
+        // Bajar hasta el elemento h2
+        let titulo = card.querySelector(".name").textContent;
+
+        let contenedorFeo = document.getElementsByClassName("contenedorFeo")[0];
+        contenedorFeo.classList.add("modalHidden");
+
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerEliminarResena.php"
+        );
+
+        url.searchParams.set("titulo", titulo);
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              respuesta = response.text();
+              return respuesta;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (respuesta) {
+            let contenedorResenas =
+              document.getElementsByClassName("contenedorResenas")[0];
+            contenedorResenas.innerHTML = "";
+            verResenas();
+          })
+          .catch(function (error) {
+            console.error("Error al realizar la solicitud fetch:", error);
+          });
+      }
+
+      /*MODIFICAR RESEÑA*/
+      function a(e) {
+        let modalHidden = document.querySelector(".modalHidden2");
+        modalHidden.classList.remove("modalHidden2");
+        modalHidden.classList.add("active-popup");
+        modalHidden.classList.add("active");
+
+        let resena = "";
+        let detalleLibro = document.getElementById("detalleLibro");
+        if (e.target.tagName == "BUTTON") {
+          let tarjeta = e.target.closest(".card2");
+          if (tarjeta) {
+            let pDescription = tarjeta.querySelector(".description");
+            if (pDescription) {
+              /*AQUI VAMOS A VOLCAR LA RESEÑA PARA EDITARLA*/
+
+              detalleLibro.innerHTML = "";
+              let imgBon = tarjeta.querySelector(".card-img");
+
+              let titulo = document.createElement("h2");
+
+              titulo.textContent = tarjeta.querySelector("h2").textContent;
+              titulo.style.fontFamily = "Merienda";
+              let img = document.createElement("img");
+              img.style.width = "150px";
+              img.style.borderRadius = "20px";
+              img.src = imgBon.src;
+
+              resena = document.createElement("input");
+              resena.classList.add("inputModificar");
+
+              resena.value = tarjeta.querySelector(".description").textContent;
+              resena.classList.add("resena");
+
+              let buttonMod = document.createElement("button");
+              buttonMod.textContent = "Modificar Reseña";
+              buttonMod.classList.add("modificar");
+              buttonMod.classList.add("button");
+              buttonMod.classList.add("mandarModificacion");
+
+              detalleLibro.appendChild(img);
+              detalleLibro.appendChild(titulo);
+              detalleLibro.appendChild(resena);
+              detalleLibro.appendChild(buttonMod);
+
+              let mandarModificacion =
+                document.getElementsByClassName("mandarModificacion")[0];
+              mandarModificacion.addEventListener("click", modificarResena);
+            }
+          }
+        }
+
+        /*abrir y cerrar el modal*/
+        let modalHidden2 = document.querySelector(".disenos");
+        const wrapper2 = document.querySelector(".estilos");
+        let modalClose2 = document.querySelector(".disenos .icon-close");
+
+        // Obtener la posición actual de desplazamiento de la página
+        var scrollTop2 =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // Ajustar la posición del modal
+        modalHidden2.style.top = scrollTop2 + 120 + "px";
+
+        // Función para actualizar la posición del modal al hacer scroll
+        function actualizarPosicionModal() {
+          var scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          modalHidden2.style.top = scrollTop + 120 + "px";
+        }
+
+        // Event listener para el evento de scroll
+        window.addEventListener("scroll", actualizarPosicionModal);
+
+        modalClose2.addEventListener("click", () => {
+          modalHidden2.classList.add("modalHidden2");
+
+          wrapper.classList.remove("active-popup");
+          wrapper.classList.remove("active");
+        });
+      }
+
+      function modificarResena(e) {
+        let valorResena;
+        let tituModi;
+
+        if (e.target.tagName == "BUTTON") {
+          let divModi = e.target.closest("div");
+          valorResena = divModi.querySelector("input").value;
+          tituModi = divModi.querySelector("h2").textContent;
+        }
+
+        const location = window.location.href;
+        const directoryPath = location.substring(
+          0,
+          location.lastIndexOf("/") + 1
+        );
+        let url = new URL(
+          directoryPath + "../controlador/controllerModificarResena.php"
+        );
+
+        url.searchParams.set("resena", valorResena);
+        url.searchParams.set("titulo", tituModi);
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              let resp = response.text();
+              return resp;
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then((resp) => {
+            let esta = resp;
+
+            contenedorResenas =
+              document.getElementsByClassName("contenedorResenas")[0];
+            contenedorResenas.innerHTML = "";
+            verResenas();
+
+            modalHidden2 = document.querySelector(".disenos");
+            wrapper2 = document.querySelector(".estilos");
+
+            modalHidden2.classList.add("modalHidden2");
+
+            wrapper.classList.remove("active-popup");
+            wrapper.classList.remove("active");
+
+            /*termina lo de abrir y cerrar modal*/
+          });
+
+        /*AQUI TERMINA EL ENVIO*/
+      }
+    </script>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>
